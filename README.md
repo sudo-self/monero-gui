@@ -43,46 +43,6 @@ Monero is a private, secure, untraceable, decentralised digital currency. You ar
 
 **Untraceability:** By taking advantage of ring signatures, a special property of a certain type of cryptography, Monero is able to ensure that transactions are not only untraceable, but have an optional measure of ambiguity that ensures that transactions cannot easily be tied back to an individual user or computer.
 
-## About this project
-
-This is the GUI for the [core Monero implementation](https://github.com/monero-project/monero). It is open source and completely free to use without restrictions, except for those specified in the license agreement below. There are no restrictions on anyone creating an alternative implementation of Monero that uses the protocol and network in a compatible manner.
-
-As with many development projects, the repository on Github is considered to be the "staging" area for the latest changes. Before changes are merged into that branch on the main repository, they are tested by individual developers in their own branches, submitted as a pull request, and then subsequently tested by contributors who focus on testing and code reviews. That having been said, the repository should be carefully considered before using it in a production environment, unless there is a patch in the repository for a particular show-stopping issue you are experiencing. It is generally a better idea to use a tagged release for stability.
-
-## Supporting the project
-
-Monero is a 100% community-sponsored endeavor. If you want to join our efforts, the easiest thing you can do is support the project financially. Both Monero and Bitcoin donations can be made to **donate.getmonero.org** if using a client that supports the [OpenAlias](https://openalias.org) standard.
-
-The Monero donation address is: `888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H` (viewkey: `f359631075708155cc3d92a32b75a7d02a5dcf27756707b47a2b31b21c389501`)
-
-The Bitcoin donation address is: `1KTexdemPdxSBcG55heUuTjDRYqbC5ZL8H`
-
-GUI development funding and/or some supporting services are also graciously provided by [sponsors](https://www.getmonero.org/community/sponsorships/):
-
-[<img width="150" src="https://www.getmonero.org/img/sponsors/tarilabs.png"/>](https://tarilabs.com/)
-[<img width="150" src="https://www.getmonero.org/img/sponsors/globee.png"/>](https://globee.com/)
-[<img width="150" src="https://www.getmonero.org/img/sponsors/symas.png"/>](https://symas.com/)
-[<img width="150" src="https://www.getmonero.org/img/sponsors/forked_logo.png"/>](http://www.forked.net/)
-[<img width="150" src="https://www.getmonero.org/img/sponsors/macstadium.png"/>](https://www.macstadium.com/)
-
-There are also several mining pools that kindly donate a portion of their fees, [a list of them can be found on our Bitcointalk post](https://bitcointalk.org/index.php?topic=583449.0).
-
-## License
-
-See [LICENSE](LICENSE).
-
-## Translations
-
-Do you speak a second language and would like to help translate the Monero GUI? Check out Weblate, our localization platform, at [translate.getmonero.org](https://translate.getmonero.org/). Choose the language and suggest a translation for a string or review an existing one. The Localization Workgroup made [a guide with step-by-step instructions](https://github.com/monero-ecosystem/monero-translations/blob/master/weblate.md) for Weblate.
-
-If you need help/support or any info you can contact the localization workgroup on the IRC channel #monero-translations (relayed on [Matrix](https://matrix.to/#/!BKMbQLMDzHKzmtrBfg:matrix.org?via=monero.social&via=matrix.org&via=libera.chat)) or by email at translate[at]getmonero[dot]org. For more info about the Localization workgroup: [github.com/monero-ecosystem/monero-translations](https://github.com/monero-ecosystem/monero-translations)
-
-Status of the translations:  
-
-<a href="https://translate.getmonero.org/engage/monero/?utm_source=widget">
-<img src="https://translate.getmonero.org/widgets/monero/-/gui-wallet/horizontal-auto.svg" alt="Translation status" />
-</a>
-
 ## Installing the Monero GUI from a package
 
 Packages are available for
@@ -200,80 +160,6 @@ Packaging for your favorite distribution would be a welcome contribution!
       http://<your.local.ip>:8080/QtApp-debug.apk
       ```
 
-### Building on Linux
-
-(Tested on Ubuntu 17.10 x64, Ubuntu 18.04 x64 and Gentoo x64)
-
-1. Install Monero dependencies
-
-  - For Debian distributions (Debian, Ubuntu, Mint, Tails...)
-
-	`sudo apt install build-essential cmake miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libzmq3-dev libsodium-dev libhidapi-dev libnorm-dev libusb-1.0-0-dev libpgm-dev libprotobuf-dev protobuf-compiler libgcrypt20-dev libboost-chrono-dev libboost-date-time-dev libboost-filesystem-dev libboost-locale-dev libboost-program-options-dev libboost-regex-dev libboost-serialization-dev libboost-system-dev libboost-thread-dev`
-
-  - For Gentoo
-
-	`sudo emerge app-arch/xz-utils app-doc/doxygen dev-cpp/gtest dev-libs/boost dev-libs/expat dev-libs/openssl dev-util/cmake media-gfx/graphviz net-dns/unbound net-libs/miniupnpc net-libs/zeromq sys-libs/libunwind dev-libs/libsodium dev-libs/hidapi dev-libs/libgcrypt`
-
-  - For Fedora
-
-	`sudo dnf install make automake cmake gcc-c++ boost-devel miniupnpc-devel graphviz doxygen unbound-devel libunwind-devel pkgconfig openssl-devel libcurl-devel hidapi-devel libusb-devel zeromq-devel libgcrypt-devel`
-
-2. Install Qt:
-
-  *Note*: The Qt 5.9.7 or newer requirement makes **some** distributions (mostly based on Debian, like Ubuntu 16.x or Linux Mint 18.x) obsolete due to their repositories containing an older Qt version.
-
- The recommended way is to install 5.9.7 from the [official Qt installer](https://www.qt.io/download-qt-installer) or [compiling it yourself](https://wiki.qt.io/Install_Qt_5_on_Ubuntu). This ensures you have the correct version. Higher versions *can* work but as it differs from our production build target, slight differences may occur.
-
-The following instructions will fetch Qt from your distribution's repositories instead. Take note of what version it installs. Your mileage may vary.
-
-  - For Debian distributions (Debian, Ubuntu, Mint, Tails...)
-
-    `sudo apt install qtbase5-dev qtdeclarative5-dev qml-module-qtqml-models2 qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-xmllistmodel qml-module-qt-labs-settings qml-module-qt-labs-platform qml-module-qt-labs-folderlistmodel qttools5-dev-tools qml-module-qtquick-templates2 libqt5svg5-dev`
-
-  - For Gentoo
-  
-   
-    The *qml* USE flag must be enabled.
-
-    `sudo emerge dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtquickcontrols:5 dev-qt/qtquickcontrols2:5 dev-qt/qtgraphicaleffects:5`
-
-  - Optional : To build the flag `WITH_SCANNER`
-
-    - For Debian distributions (Debian, Ubuntu, Mint, Tails...)
-
-      `sudo apt install qtmultimedia5-dev qml-module-qtmultimedia`
-
-    - For Gentoo      
-
-      `emerge dev-qt/qtmultimedia:5`
-
-
-3. Clone repository
-
-    ```
-    git clone --recursive https://github.com/monero-project/monero-gui.git
-    cd monero-gui
-    ```
-
-4. Build
-
-    If on x86-64:
-
-    ```
-    make release -j4
-    ```
-
-    If on ppc64le:
-
-    ```
-    make release-linux-ppc64le -j4
-    ```
-
-    \* `4` - number of CPU threads to use  
-    \* Add `CMAKE_PREFIX_PATH` environment variable to set a custom Qt install directory, e.g. `CMAKE_PREFIX_PATH=$HOME/Qt/5.9.7/gcc_64 make release -j4`
-
-The executable can be found in the build/release/bin folder.
-
 ### Building on OS X
 
 1. Install Xcode from AppStore
@@ -294,63 +180,7 @@ The executable can be found in the build/release/bin folder.
    git clone --recursive https://github.com/monero-project/monero-gui.git
    cd monero-gui
    ```
+![monero](https://user-images.githubusercontent.com/119916323/232553200-9d117e8f-4645-4a7d-90ac-d82606694bd0.jpg)
 
-6. Start the build
 
-    ```
-    make release -j4
-    ```
-    \* `4` - number of CPU threads to use  
-    \* Add `CMAKE_PREFIX_PATH` environment variable to set a custom Qt install directory, e.g. `CMAKE_PREFIX_PATH=$HOME/Qt/5.9.7/clang_64 make release -j4`
 
-The executable can be found in the `build/release/bin` folder.
-
-For building an application bundle see `DEPLOY.md`.
-
-### Building on Windows
-
-The Monero GUI on Windows is 64 bits only; 32-bit Windows GUI builds are not officially supported anymore.
-
-1. Install [MSYS2](https://www.msys2.org/), follow the instructions on that page on how to update system and packages to the latest versions
-
-2. Open an 64-bit MSYS2 shell: Use the *MSYS2 MinGW 64-bit* shortcut, or use the `msys2_shell.cmd` batch file with a `-mingw64` parameter
-
-3. Install MSYS2 packages for Monero dependencies; the needed 64-bit packages have `x86_64` in their names
-
-    ```
-    pacman -S mingw-w64-x86_64-toolchain make mingw-w64-x86_64-cmake mingw-w64-x86_64-boost mingw-w64-x86_64-openssl mingw-w64-x86_64-zeromq mingw-w64-x86_64-libsodium mingw-w64-x86_64-hidapi mingw-w64-x86_64-protobuf-c mingw-w64-x86_64-libusb mingw-w64-x86_64-libgcrypt mingw-w64-x86_64-unbound
-    ```
-
-    You find more details about those dependencies in the [Monero documentation](https://github.com/monero-project/monero). Note that that there is no more need to compile Boost from source; like everything else, you can install it now with a MSYS2 package.
-
-4. Install Qt5
-
-    ```
-    pacman -S mingw-w64-x86_64-qt5
-    ```
-
-    There is no more need to download some special installer from the Qt website, the standard MSYS2 package for Qt will do in almost all circumstances.
-
-5. Install git
-
-    ```
-    pacman -S git
-    ```
-
-6. Clone repository
-
-    ```
-    git clone --recursive https://github.com/monero-project/monero-gui.git
-    cd monero-gui
-    ```
-
-7. Build
-
-    ```
-    make release-win64 -j4
-    cd build/release
-    make deploy
-    ```
-    \* `4` - number of CPU threads to use
-
-The executable can be found in the `.\bin` directory.
